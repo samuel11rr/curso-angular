@@ -1,4 +1,4 @@
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+<!-- <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -39,6 +39,24 @@
       <img src="assets/img/album.png" alt="">
       <hr>
       Un poco de texto por aquí, ¿por que no?
+    </div>
+  </div>
+</div> -->
+
+
+<div class="card-columns">
+  <div *ngFor="let cancion of nuevasCanciones" class="card">
+    <img class="card-img-top img-fluid" [src]="cancion.images[0].url">
+
+    <div class="card-block">
+      <h5 class="card-title">{{ cancion.name }}</h5>
+
+      <p class="card-text">
+        <span class="badge badge-pill badge-primary"
+              *ngFor="let artista of cancion.artists">
+          {{ artista.name }}
+        </span>
+      </p>
     </div>
   </div>
 </div>

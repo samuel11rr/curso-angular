@@ -1,36 +1,28 @@
-<div class="container top-30">
-  <div class="row">
-    <div class="col-md-3">
-      <h4>{{termino}}</h4>
-      <br>
+<div class="row">
+  <div class="col-md-3">
+    <h4>{{termino}}</h4>
+    <br>
 
-      <label for="termino">Buscador de artista</label>
+    <label for="termino">Buscador de artista</label>
 
-      <input [(ngModel)]="termino"
-        (keyup)="buscarArtista()"
-        type="text" name="termino"
-        class="form-control"
-        placeholder="Buscar artista">
+    <input [(ngModel)]="termino"
+      (keyup)="buscarArtista()"
+      type="text" name="termino"
+      class="form-control"
+      placeholder="Buscar artista">
 
-        <hr>
-
-    </div>
-
-    <div class="col-md-9">
-      <div class="row">
-        <div class="col-md-3 text-center puntero"
-              [routerLink]="['/artista',artista.id]"
-              *ngFor="let artista of _spotifyService.artistas">
-          <img [src]="artista.images | sinfoto" class="img-fluid img-thumbnail">
-          <p>
-            {{ artista.name }}
-          </p>
-
-          <hr>
-
-        </div>
-      </div>
-    </div>
+      <hr>
 
   </div>
+
+<div class="card-columns m-5">
+  <div *ngFor="let artista of artistas" class="card">
+    <img class="card-img-top img-fluid" [src]="artista.images[0].url">
+
+    <div class="card-block">
+      <h5 class="card-title">{{ artista.name }}</h5>
+    </div>
+  </div>
+</div>
+
 </div>
