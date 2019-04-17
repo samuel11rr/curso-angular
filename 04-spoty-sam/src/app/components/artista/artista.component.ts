@@ -18,25 +18,25 @@ export class ArtistaComponent implements OnInit {
                 private _spotifyService:SpotifyService) { }
 
   ngOnInit() {
-    this.activatedRoute.params
-          .map(parametros => parametros['id'])
-          .subscribe( id => {
-            // console.log( id );
-            this._spotifyService.getArtista( id )
-                  .subscribe( data => this.artista = data );
+    // this.activatedRoute.params
+    //       .map(parametros => parametros['id'])
+    //       .subscribe( id => {
+    //         // console.log( id );
+    //         this._spotifyService.getArtista( id )
+    //               .subscribe( data => this.artista = data );
 
-            // this._spotifyService.getIdArtista( id )
-            //       .subscribe( data => this.identificador = data );
+    //         // this._spotifyService.getIdArtista( id )
+    //         //       .subscribe( data => this.identificador = data );
 
-            // this._spotifyService.getImgArtista( id )
-            //       .subscribe( data => this.imgArtista = data );
+    //         // this._spotifyService.getImgArtista( id )
+    //         //       .subscribe( data => this.imgArtista = data );
 
-            // this._spotifyService.getNameArtista( id )
-            //       .subscribe( data => this.nameArtista = data );
+    //         // this._spotifyService.getNameArtista( id )
+    //         //       .subscribe( data => this.nameArtista = data );
 
-            this._spotifyService.getTop( id )
-                  .subscribe( data => this.pistas = data );
-        });
+    //         this._spotifyService.getTop( id )
+    //               .subscribe( data => this.pistas = data );
+    //     });
   }
 
 }

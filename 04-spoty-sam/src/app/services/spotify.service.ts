@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 
 @Injectable()
@@ -10,31 +10,45 @@ export class SpotifyService {
   urlBusqueda:string = "https://api.spotify.com/v1/search";
   urlArtista:string = "https://api.spotify.com/v1/artists";
 
-  constructor( private http:Http ) { }
+  constructor(private http: HttpClient) { }
 
-  getArtistas( termino:string ){
-    let query = `?q=${ termino }&type=artist`;
-    let url = this.urlBusqueda + query;
+  getNewReleases(){
 
-    return this.http.get( url )
-                    .map( res => {
-                      this.artistas = res.json().artists.items;
-                      // console.log( this.artistas );
+    const headers = new HttpHeaders({
+      'Authorization': 'Bearer BQDFeW1xeK_Jkn6Lh8mzOM0Eqfd_jF5vfjsAzaC15SMkMhOm80_KmmQnL3f5QnxclmGEl1mJDtBT2s33TPo'
+    });
 
-                      // return res.json().artists.items;
-                    })
+    this.http.get('https://api.spotify.com/v1/browse/new-releases', {headers})
+    .subscribe( data => {
+      console.log(data);
+    })
   }
 
-  getArtista( id:string ){
-    let query = `/${ id }`;
-    let url = this.urlArtista + query;
 
-    return this.http.get( url )
-                    .map( res => {
-                      // console.log(res.json());
-                      return res.json();
-                    })
-  }
+  // getArtistas( termino:string ){
+  //   let query = `?q=${ termino }&type=artist`;
+  //   let url = this.urlBusqueda + query;
+
+  //   return this.http.get( url )
+  //                   .subscribe( res => {
+  //                     this.artistas = res.json().artists.items;
+  //                     // this.artistas = res.json().artists.items;
+  //                     // console.log( this.artistas );
+
+  //                     // return res.json().artists.items;
+  //                   })
+  // }
+
+  // getArtista( id:string ){
+  //   let query = `/${ id }`;
+  //   let url = this.urlArtista + query;
+
+  //   return this.http.get( url )
+  //                   .map( res => {
+  //                     // console.log(res.json());
+  //                     return res.json();
+  //                   })
+  // }
 
   // getIdArtista( id:string ){
   //   let query = `/${ id }`;
@@ -69,14 +83,14 @@ export class SpotifyService {
   //                   })
   // }
 
-  getTop( id:string ){
-    let query = `/${ id }/top-tracks?country=MX`;
-    let url = this.urlArtista + query;
+  // getTop( id:string ){
+  //   let query = `/${ id }/top-tracks?country=MX`;
+  //   let url = this.urlArtista + query;
 
-    return this.http.get( url )
-                    .map( res => {
-                      // console.log( res.json().tracks );
-                      return res.json().tracks;
-                    })
-  }
+  //   return this.http.get( url )
+  //                   .map( res => {
+  //                     // console.log( res.json().tracks );
+  //                     return res.json().tracks;
+  //                   })
+  // }
 }
