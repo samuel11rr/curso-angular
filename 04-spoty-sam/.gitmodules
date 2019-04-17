@@ -1,0 +1,3 @@
+[submodule "Curso-Angular2"]
+	path = Curso-Angular2
+	url = git://github.com/samuel11rr/Curso-Angular2.git
