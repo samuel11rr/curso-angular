@@ -22,6 +22,15 @@
 
 
 <div class="container top-30">
+
+  <div class="row">
+    <ul>
+      <li *ngFor="item pais in paises">
+        {{ pais.name }} - {{ pais.population | number }}
+      </li>
+    </ul>
+  </div>
+
   <div class="row">
     <div class="col-md-4 text-center">
       <img src="assets/img/artist.png" alt="">
