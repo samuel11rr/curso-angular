@@ -11,12 +11,15 @@ import { SpotifyService } from './services/spotify.service'
 //pipes
 import { SinfotoPipe } from './pipes/sinfoto.pipe';
 import { DomseguroPipe } from './pipes/domseguro.pipe';
+import { NoimagePipe } from './pipes/noimage.pipe';
 
+// components
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { SearchComponent } from './components/search/search.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { ArtistaComponent } from './components/artista/artista.component';
+import { TarjetasComponent } from './components/tarjetas/tarjetas.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,9 @@ import { ArtistaComponent } from './components/artista/artista.component';
     NavbarComponent,
     SinfotoPipe,
     DomseguroPipe,
-    ArtistaComponent
+    ArtistaComponent,
+    NoimagePipe,
+    TarjetasComponent
   ],
   imports: [
     BrowserModule,
