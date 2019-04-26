@@ -8,17 +8,25 @@ import { SpotifyService } from '../../services/spotify.service';
 })
 export class ArtistaComponent implements OnInit {
 
-  artista:any;
+  artista:any = {};
   pistas:any[]=[];
   imgArtista:any;
   nameArtista:string;
   identificador:string;
+  loading: boolean = false;
 
-  constructor( private activatedRoute:ActivatedRoute,
-                private _spotifyService:SpotifyService) { }
+  constructor(  private router:ActivatedRoute,
+                private spotify:SpotifyService) {
+    this.loading = true;
+    this.router.params.subscribe( params =>{
+      this.getTopTracks( params['id'] );
+      this.getArtista( params['id'] );
+    });
+
+  }
 
   ngOnInit() {
-    // this.activatedRoute.params
+    // this.router.params
     //       .map(parametros => parametros['id'])
     //       .subscribe( id => {
     //         // console.log( id );
@@ -37,6 +45,23 @@ export class ArtistaComponent implements OnInit {
     //         this._spotifyService.getTop( id )
     //               .subscribe( data => this.pistas = data );
     //     });
+  }
+
+
+  getArtista( id:string ){
+    this.spotify.getArtista( id )
+                .subscribe( artista => {
+                  this.artista = artista;
+                  this.loading = false;
+                });
+  }
+
+  getTopTracks( id:string ){
+    this.spotify.getTop(id)
+                .subscribe(tracks => {
+                  this.pistas = tracks;
+                  // this.loading = false;
+                });
   }
 
 }

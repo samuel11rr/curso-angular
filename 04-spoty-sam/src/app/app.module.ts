@@ -20,6 +20,7 @@ import { SearchComponent } from './components/search/search.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { ArtistaComponent } from './components/artista/artista.component';
 import { TarjetasComponent } from './components/tarjetas/tarjetas.component';
+import { LoadingComponent } from './components/shared/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { TarjetasComponent } from './components/tarjetas/tarjetas.component';
     DomseguroPipe,
     ArtistaComponent,
     NoimagePipe,
-    TarjetasComponent
+    TarjetasComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,

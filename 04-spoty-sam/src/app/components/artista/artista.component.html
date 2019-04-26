@@ -1,7 +1,10 @@
-<div class="container top-30 animated fadeIn fast" *ngIf="artista">
+<app-loading *ngIf="loading"></app-loading>
+
+
+<div class="container top-30 animated fadeIn fast" *ngIf="!loading">
   <div class="row">
     <div class="col-md-3  text-center">
-      <img [src]="artista.images | sinfoto"
+      <img [src]="artista.images | noimage"
             class="img-fluid img-responsive img-thumbnail">
     </div>
 
@@ -37,8 +40,8 @@
           <tr *ngFor="let pista of pistas; let i = index">
             <td>{{ i+1 }}</td>
             <td>
-              <img src="{{ pista.album.images[2].url }}" alt="">
-              <!-- <img [src]="pista.album?.images[] | sinfoto" alt=""> -->
+              <!-- <img src="{{ pista.album.images[2].url }}" alt=""> -->
+              <img [src]="pista.album.images | sinfoto" class="img-thumbnail">
               {{ pista.name }}
             </td>
             <td>

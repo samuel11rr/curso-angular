@@ -5,18 +5,17 @@
 
     <label for="termino">Buscador de artista</label>
 
-    <input [(ngModel)]="termino"
-      (keyup)="buscarArtista()"
-      type="text" name="termino"
-      class="form-control"
-      placeholder="Buscar artista">
-
+    <input  [(ngModel)]="termino"
+            (keyup)="buscarArtista()"
+            type="text" name="termino"
+            class="form-control"
+            placeholder="Buscar artista">
       <hr>
-
   </div>
 
-  <div class="card-columns m-5">
-    <app-tarjetas [items]="artistas"></app-tarjetas>
+  <div class="card-columns m-5 animated fadeIn">
+    <app-loading *ngIf="loading" class="m-5"></app-loading>
+    <app-tarjetas *ngIf="!loading" [items]="artistas"></app-tarjetas>
   </div>
 
 </div>
