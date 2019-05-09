@@ -1,6 +1,6 @@
 // Must export the config
 export const firebaseConfig = {
-  apiKey: "AIzaSyAieGFiYhK0y3TYG9adUX1D9C6oaDW7PIk",
+  apiKey: "",
   authDomain: "firechat-556e7.firebaseapp.com",
   databaseURL: "https://firechat-556e7.firebaseio.com",
   projectId: "firechat-556e7",
