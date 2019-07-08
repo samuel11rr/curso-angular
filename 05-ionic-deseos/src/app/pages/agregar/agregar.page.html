@@ -1,44 +1,39 @@
 <ion-header no-border>
-  <ion-toolbar color="dark">
+    <ion-toolbar color="dark">
 
-    <ion-button 
-      slot="start"
-      color="tertiary">
-      <ion-back-button
-        defaultHref="/"
-        color="light">
-      </ion-back-button>
-    </ion-button>
+        <ion-button slot="start" color="tertiary">
+            <ion-back-button defaultHref="/" color="light">
+            </ion-back-button>
+        </ion-button>
 
-    <ion-title>Nombre de la lista</ion-title>
-  </ion-toolbar>
+        <ion-title>{{ lista.titulo }}</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content color="dark">
 
-  <ion-list color="dark">
-    <ion-item color="dark">
-      <ion-label position="floating">Nuevo item</ion-label>
-      <ion-input type="text"></ion-input>
-    </ion-item>
-  </ion-list>
+    <ion-list color="dark">
+        <ion-item color="dark">
+            <ion-label position="floating">Nuevo item</ion-label>
+            <ion-input type="text" [(ngModel)]="nombreItem" (keyup.enter)="agregarItem()">
+            </ion-input>
+        </ion-item>
+    </ion-list>
 
 
-  <ion-list>
+    <ion-list>
 
-    <ion-list-header color="dark">
-      <ion-label>Tareas por hacer</ion-label>
-    </ion-list-header>
+        <ion-list-header color="dark">
+            <ion-label>Tareas por hacer</ion-label>
+        </ion-list-header>
 
-    <ion-item color="dark">
-      <ion-label>Tomar curso de angular</ion-label>
-      <ion-checkbox
-        slot="start" 
-        color="tertiary">
-      </ion-checkbox>
-    </ion-item>
+        <ion-item color="dark" *ngFor="let item of lista.items">
+            <ion-label>{{ item.desc }}</ion-label>
+            <ion-checkbox slot="start" color="tertiary" [(ngModel)]="item.completado">
+            </ion-checkbox>
+        </ion-item>
 
-  </ion-list>
+    </ion-list>
 
 
 </ion-content>
