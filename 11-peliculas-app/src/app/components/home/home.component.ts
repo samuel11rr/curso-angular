@@ -7,7 +7,15 @@ import { PeliculasService } from "../../services/peliculas.service";
 })
 export class HomeComponent implements OnInit {
 
-  constructor( private _ps:PeliculasService ) {
+  cartelera:any;
+
+  constructor( public _ps:PeliculasService ) {
+    this._ps.getCartelera()
+    .subscribe( data => {
+      this.cartelera=data;
+      console.log(this.cartelera);
+
+    })
   }
 
   ngOnInit() {

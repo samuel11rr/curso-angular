@@ -8,6 +8,8 @@ import { PeliculasService } from "./services/peliculas.service";
 
 import { APP_ROUTING } from "./app.routes";
 
+import { PeliculaImagenPipe } from './pipes/pelicula-imagen.pipe';
+
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
@@ -20,7 +22,8 @@ import { PeliculaComponent } from './components/pelicula/pelicula.component';
     NavbarComponent,
     HomeComponent,
     BusquedaComponent,
-    PeliculaComponent
+    PeliculaComponent,
+    PeliculaImagenPipe
   ],
   imports: [
     BrowserModule,
