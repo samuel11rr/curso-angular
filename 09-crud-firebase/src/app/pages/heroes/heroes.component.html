@@ -13,20 +13,23 @@
 <table class="table mt-3 animated fadeIn fast">
     <thead class="thead-dark">
         <tr>
-            <th scope="col">#</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Poder</th>
-            <th scope="col">Vivo</th>
-            <th scope="col">Opciones</th>
+            <th>#</th>
+            <th>Nombre</th>
+            <th>Poder</th>
+            <th>Vivo</th>
+            <th>Opciones</th>
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
+        <tr *ngFor="let heroe of heroes; let i = index">
+            <td scope="row"> {{ i+1 }} </td>
+            <td> {{ heroe.nombre }} </td>
+            <td> {{ heroe.poder }} </td>
+            <td>
+                <label *ngIf="heroe.vivo" class="badge badge-success">Vivo</label>
+                <label *ngIf="!heroe.vivo" class="badge badge-danger">Muerto</label>
+            </td>
+            <td> </td>
         </tr>
     </tbody>
 </table>
