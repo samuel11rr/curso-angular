@@ -1,3 +1,32 @@
-<p>
-Información de las peliculas
-</p>
+<div class="container main-container animated fadeIn fast" *ngIf="pelicula">
+
+    <h1> {{ pelicula.original_title }} </h1>
+
+    <div class="row">
+        <div class="col-md-5">
+            <img [src]="pelicula|peliculaImagen:true" [alt]="pelicula.original_title" class="img-thumbnail img-fluid">
+        </div>
+
+        <div class="col-md-7">
+            <h3> Sinopsis </h3>
+
+            <hr>
+
+            <p>{{ pelicula.overview }}</p>
+
+            <h5>
+                {{ pelicula.tagline }}
+            </h5>
+
+            <p>
+                Popularidad: <span class="badge badge-primary"> {{ pelicula.popularity | number:".0-0" }} </span>
+                <br> Voto promedio: <span class="badge badge-primary"> {{ pelicula.vote_average }} </span>
+            </p>
+
+            <button class="btn btn-outline-danger" [routerLink]="['/'+regresarA, busqueda]">
+              Regresar
+            </button>
+        </div>
+    </div>
+
+</div>

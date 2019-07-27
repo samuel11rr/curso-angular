@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { PeliculasService } from '../../services/peliculas.service';
 
 @Component({
   selector: 'app-pelicula',
@@ -7,9 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PeliculaComponent implements OnInit {
 
-  constructor() { }
+  pelicula:any;
+  regresarA:string ="";
+  busqueda:string = "";
 
-  ngOnInit() {
-  }
+  constructor( public _ps: PeliculasService,
+    public route: ActivatedRoute ) {
+      this.route.params.subscribe( params => {
+        console.log(params);
+
+        if ( params['busqueda'] ) {
+          this.busqueda = params['busqueda'];
+        }
+
+        this.regresarA = params['pag'];
+
+        this._ps.getPelicula( params['id'] )
+        .subscribe( res => this.pelicula=res );
+      })
+    }
+
+  ngOnInit() {  }
 
 }
