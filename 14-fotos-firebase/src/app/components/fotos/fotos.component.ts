@@ -11,8 +11,6 @@ export interface Item { nombre: string; url: string; }
 })
 export class FotosComponent implements OnInit {
 
-  /* NOT WORKING */
-
   private itemsCollection: AngularFirestoreCollection<Item>;
   items: Observable<Item[]>;
 
