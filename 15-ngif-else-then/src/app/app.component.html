@@ -1,0 +1,14 @@
+<div *ngIf="usuario; then welcome else login"></div>
+
+<ng-template #welcome>
+  <p>welcome {{ usuario }}</p>
+  <button (click)="usuario = null" style="background-color: orange">
+    Salir
+  </button>
+</ng-template>
+
+<ng-template #login>
+  <button (click)="usuario = 'Sam'" style="background-color: lightblue">
+    Entrar
+  </button>
+</ng-template>
