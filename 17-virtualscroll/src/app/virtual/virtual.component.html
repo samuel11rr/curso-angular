@@ -1,0 +1,47 @@
+<h1>Virtual scroll</h1>
+<p>npm install @angular/cdk
+    <br>
+    <a href="https://material.angular.io/cdk/scrolling/overview">Documentacion</a>
+</p>
+<hr>
+
+<div class="row">
+    <div class="col">
+        <button type="button" 
+                class="btn btn-outline-primary"
+                (click)="irFinal()">
+            Ir al Final
+        </button>
+    </div>
+
+    <div class="col">
+            <button type="button" 
+                    class="btn btn-outline-secondary"
+                    (click)="irMitad()">
+                Ir a la mitad
+            </button>
+        </div>
+
+    <div class="col">
+        <button type="button" 
+                class="btn btn-outline-warning"
+                (click)="irInicio()">
+            Ir al Inicio
+        </button>
+    </div>
+</div>
+
+<hr>
+
+<cdk-virtual-scroll-viewport 
+    itemSize="50" 
+    class="list-container list-group">
+
+    <div *cdkVirtualFor="let persona of personas; 
+                         let i = index; 
+                         let conteo = count"
+        class="list-group-item">
+        Item {{ i }} de {{ conteo }}
+    </div>
+
+</cdk-virtual-scroll-viewport>

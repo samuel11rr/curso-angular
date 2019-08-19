@@ -1,0 +1,15 @@
+<h1>Drag & Drop</h1>
+<p>
+    <a href="https://material.angular.io/cdk/drag-drop/overview">Documentacion</a>
+</p>
+<hr>
+
+<ul class="list-group" 
+    cdkDropList
+    (cdkDropListDropped)="drop($event)">
+    <li class="list-group-item" 
+        *ngFor="let pais of paises"
+        cdkDrag>
+        {{ pais.name }}
+    </li>
+</ul>
